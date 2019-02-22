@@ -5,32 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinpark <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/21 14:32:00 by jinpark           #+#    #+#             */
-/*   Updated: 2019/02/21 14:34:22 by jinpark          ###   ########.fr       */
+/*   Created: 2019/02/21 16:04:39 by jinpark           #+#    #+#             */
+/*   Updated: 2019/02/21 17:56:04 by jinpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(void)
+void print_bits(unsigned char octet)
 {
-	int n;
 	int i;
-	
-	n = 2;
+	unsigned char bit;
+
 	i = 8;
-	while(i > 0)
+	while(i--)
 	{
-		if(n & (1 << i))
-		{
-			write(1, "1", 1);
-		}
-		else
-		{
-			write(1, "0", 1);
-		}
-		i--;
+		bit = ((octec >> i) & 1) + '0';
+		write(1, &bit, 1);
 	}
-	write(1, "\n", 1);
-	return(0);
 }
