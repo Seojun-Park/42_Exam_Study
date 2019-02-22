@@ -6,7 +6,7 @@
 /*   By: jinpark <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/21 13:38:23 by jinpark           #+#    #+#             */
-/*   Updated: 2019/02/21 13:47:16 by jinpark          ###   ########.fr       */
+/*   Updated: 2019/02/21 16:03:44 by jinpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 int	max(int *tab, unsigned int len)
 {
 	int i;
-	int n; // store the biggest number
+	int n;
 
 	i = 0;
+	n = -2147483648
 	while(len--)
 	{
-		if(tab[i] > tab[i + 1])
+		if(n < tab[i])
 			n = tab[i];
 		i++;
 	}
