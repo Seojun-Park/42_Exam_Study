@@ -1,5 +1,13 @@
 #include <unistd.h>
 
+void print_hex(int x)
+{
+    char *s = "0123456789abcdef";
+
+    write(1, &s[x / 16], 1);
+    write(1, &s[x % 16], 1);
+}
+
 void ft_putchar(char c)
 {
     if (c >= 32 && c <= 126)
@@ -7,17 +15,7 @@ void ft_putchar(char c)
         write(1, &c, 1);
     }
     else
-    {
         write(1, ".", 1);
-    }
-}
-
-void print_hex(int x)
-{
-    char *s = "0123456789abcdef";
-
-    write(1, &s[x / 16], 1);
-    write(1, &s[x % 16], 1);
 }
 
 void print_memory(const void *addr, size_t size)

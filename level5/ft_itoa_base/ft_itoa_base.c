@@ -39,14 +39,3 @@ char *ft_itoa_base(int value, int base)
 	return (res);
 }
 
-/*
-#include <stdio.h>
-
-int main (int ac, char **av)
-{
-	if (ac == 3)
-	{
-		printf("%s",ft_itoa_base(atoi(av[1]), atoi(av[2])));
-	}
-	return (0);
-}/*

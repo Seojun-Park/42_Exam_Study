@@ -3,11 +3,11 @@
 
 void ib(int v, int b, char *res, int *p)
 {
-    char *s = "0123456789ABCDEF";
+    char *base = "0123456789ABCDEF";
 
     if (v >= b || v <= -b)
         ib(v, b, res, p);
-    res[(*p)++] = s[abs(v % b)];
+    res[(*p)++] = base[abs(v % b)];
 }
 
 char *ft_itoa_base(int value, int base)
@@ -15,8 +15,10 @@ char *ft_itoa_base(int value, int base)
     int p = 0;
     char *res;
 
-    if (((value < 2 || value > 16) || !(res = (char *)malloc(sizeof(char) * 35))))
+    if (((base < 2 || base > 16) || !(res = (char *)malloc(sizeof(char) * 35))))
+    {
         return NULL;
+    }
     if (value < 0 && base == 10)
         res[p++] = '-';
     ib(value, base, res, &p);
