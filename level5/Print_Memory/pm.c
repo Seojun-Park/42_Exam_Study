@@ -8,7 +8,7 @@ void ft_print_hex(int x)
     write(1, &base[x % 16], 1);
 }
 
-void ft_putchar(char c)
+void ft_puchar(char c)
 {
     if (c >= 32 && c <= 126)
         write(1, &c, 1);
