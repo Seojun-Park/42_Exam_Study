@@ -6,7 +6,7 @@
 /*   By: jinpark <jinpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/11 13:16:08 by jinpark           #+#    #+#             */
-/*   Updated: 2020/09/11 13:20:27 by jinpark          ###   ########.fr       */
+/*   Updated: 2020/09/11 14:28:54 by jinpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void brainfuck(char *str)
 {
     int tab[2048] = {0};
     int *ptr;
-    int loop_cnt;
+    int cnt;
 
     ptr = tab;
-    loop_cnt = 0;
+    cnt = 0;
     while (*str)
     {
         if (*str == '>')
@@ -35,25 +35,26 @@ void brainfuck(char *str)
             write(1, ptr, 1);
         else if (*str == '[' && *ptr == 0)
         {
-            loop_cnt = 1;
-            while (loop_cnt != 0)
+            cnt = 1;
+            while (cnt != 0)
             {
                 str++;
                 if (*str == ']')
-                    --loop_cnt;
+                    --cnt;
                 if (*str == '[')
-                    ++loop_cnt;
+                    ++cnt;
             }
         }
         else if (*str == ']' && *ptr != 0)
         {
-            loop_cnt = 1;
-            while (loop_cnt != 0){
-                str++;
+            cnt = 1;
+            while (cnt != 0)
+            {
+                str--;
+                if (*str == '[')
+                    --cnt;
                 if (*str == ']')
-                    --loop_cnt;
-                if (*str == ']')
-                    ++loop_cnt;
+                    ++cnt;
             }
         }
         str++;
