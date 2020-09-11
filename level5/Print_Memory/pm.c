@@ -20,8 +20,9 @@ void print_memory(const void *addr, size_t size)
 {
     size_t i = 0;
     size_t j;
-    unsigned char const *p = addr;
+    unsigned const char *p;
 
+    p = addr;
     while (i < size)
     {
         j = 0;
